@@ -3,6 +3,9 @@ from django import forms
 from .models import Profile
 
 
+class DateInput(forms.DateInput):
+	input_type = 'date'
+
 class AddProfileForm(forms.ModelForm):
 
     class Meta:
@@ -13,6 +16,8 @@ class AddProfileForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        self.fields['date_of_birth'].widget = DateInput()
+        
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class': 'form-control mb-3'})
 

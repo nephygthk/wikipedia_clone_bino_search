@@ -7,19 +7,25 @@
     <title>Wiki Job Search</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/wiki.css' %}">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favi/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favi/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favi/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favi/site.webmanifest' %}">
   </head>
   <body>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-white">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="{% static 'images/wiki-logo.png' %}" width="150"></a>
+          <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" width="40"><img src="{% static 'images/logo-text.png' %}" width="180"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form class="d-flex mx-auto w-50" role="search">
                 <div class="input-group d-none d-md-flex">
-                    <input type="text" class="form-control" placeholder="Search Bunowiki" aria-label="Recipient's username with two button addons">
+                    <input type="text" class="form-control" placeholder="Search Bino" aria-label="Recipient's username with two button addons">
                     <button class="btn btn-outline-secondary fw-bold" type="button">Search</button>
                 </div>
             </form>
@@ -38,14 +44,14 @@
     <!-- bar side -->
     <div class="container py-3">
         <div class="row border py-2 border-success ">
-            <div class="col-md-1 d-none d-md-block">
-                <img src="{% static 'images/logo.png' %}" width="60px">
-            </div>
+            <div class="col-md-1"></div>
             <div class="col-md-10 text-center">
                 <p class="text-center">Buno Loves You: <br>
-                Information here has been verified by our team and ve been confirmed to be the real information of this person </p>
+                Information below have been verified by our team, it's confirmed to be the real information of this person </p>
             </div>
-            <div class="col-md-1"></div>
+            <div class="col-md-1 d-none d-md-block">
+                <img src="{% static 'images/logo.png' %}" width="40px">
+            </div>
         </div>
     </div>
 
