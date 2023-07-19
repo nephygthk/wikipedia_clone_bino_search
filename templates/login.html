@@ -1,0 +1,63 @@
+{% extends './base.html' %}
+
+
+{% block content %}
+<style>
+    body{
+        background: url(/static/images/banner-1.jpg);
+        height: 100vh;
+        background-repeat: no-repeat; 
+        background-size: cover;
+        background-position: center;
+            }
+    .form-control:focus{
+        border-color: #f30498;
+        box-shadow: none;
+    }
+    .card{
+        background-image: linear-gradient(to right, #0d57b8, #fcfcfc) !important;
+        color: #fff;
+    }
+    .btn-secondary{
+        background: #f30498 !important;
+    }
+    .btn-secondary:hover{
+        background: #c96201 !important;
+    }
+</style>
+
+<div class="container py-5 mt-5">
+    <div class="row justify-content-center align-item-center py-5">
+        <div class="col-md-5">
+            <div class="card shadow">
+                <h2 class="card-title mt-5 ms-4">
+                    Login Admin
+                </h2>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{message}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <hr class="mt-0">
+                <div class="card-body mx-3">
+                    <form action="." method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="username" class="form-label fw-bold">Username</label>
+                            <input type="text" name="username" class="form-control" id="username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-bold">Password</label>
+                            <input type="password" name="password" class="form-control" id="password">
+                        </div>
+                        <input type="submit" value="Login" class="btn btn-secondary fw-bold w-100">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

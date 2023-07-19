@@ -1,0 +1,164 @@
+{% extends './base.html' %}
+
+
+{% block content %}
+<style>
+    body{
+        background: #18191A;
+    }
+    .form-control{
+        background: #18191A;
+        color: #fff;
+        border-color: #18191A;
+    }
+    .form-control:focus{
+        border-color: #f30498;
+        box-shadow: none;
+        background: #979da3;
+        
+    }
+    .btn-secondary{
+        background: #f30498 !important;
+        border-color: #f30498 !important;
+    }
+    .btn-secondary:hover{
+        background: #c96201 !important;
+        border-color: #c96201 !important;
+    }
+</style>
+{% include './navbar.html' %}
+<div class="container py-5">
+    <div class="row justify-content-center align-item-center py-5">
+        <div class="col-md-10">
+            <div class="card shadow text-white bg-dark">
+                <h2 class="text-center">Add New Profile</h2>
+                <hr class="bg-white">
+                {% if form.errors %}
+                    <p class="text-white fw-bold">Please correct the following errors:</p>
+                    {% for field in form %}
+                        {% if field.errors %}
+                        <div class="alert alert-primary" role="alert">
+                            {{ field.label }}: {{ field.errors|striptags }}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{message}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <div class="card-body">
+                    <form action="." method="POST" enctype="multipart/form-data">
+                        {% csrf_token%}
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="{{ form.name.id_for_label}}" class="form-label">Title | Full Name</label>
+                                    {{form.name}}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="{{ form.date_of_birth.id_for_label}}" class="form-label">Birthdate</label>
+                                    {{form.date_of_birth}}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="{{ form.nationality.id_for_label}}" class="form-label">Nationality</label>
+                                    {{form.nationality}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="{{ form.occupation.id_for_label}}" class="form-label">Occupation</label>
+                                    {{form.occupation}}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="{{ form.field.id_for_label}}" class="form-label">Major Field</label>
+                                    {{form.field}}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="{{ form.institutions.id_for_label}}" class="form-label">Institutions</label>
+                                    {{form.institutions}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="{{ form.picture_1.id_for_label}}" class="form-label">Profile Image</label>
+                                    {{form.picture_1}}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="{{ form.picture_2.id_for_label}}" class="form-label">Extra Image</label>
+                                    {{form.picture_2}}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="{{ form.picture_3.id_for_label}}" class="form-label">Extra Image 2 </label>
+                                    {{form.picture_3 }}
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="{{ form.biography.id_for_label}}" class="form-label">Biography Summary</label>
+                                    {{form.biography}}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="{{ form.early_life_education.id_for_label}}" class="form-label">Early Life and Education</label>
+                                    {{form.early_life_education}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="{{ form.family_career.id_for_label}}" class="form-label">Family and Career</label>
+                                    {{form.family_career}}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="{{ form.field_work.id_for_label}}" class="form-label">Field and Work</label>
+                                    {{form.field_work}}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="{{ form.award_honors.id_for_label}}" class="form-label">Award and Honors</label>
+                                    {{form.award_honors}}
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" value="Save Profile" class="btn btn-secondary fw-bold w-100 rounded-pill">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

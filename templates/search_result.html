@@ -1,0 +1,231 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wiki Job Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/wiki.css' %}">
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-white">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="{% static 'images/wiki-logo.png' %}" width="150"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex mx-auto w-50" role="search">
+                <div class="input-group d-none d-md-flex">
+                    <input type="text" class="form-control" placeholder="Search Bunowiki" aria-label="Recipient's username with two button addons">
+                    <button class="btn btn-outline-secondary fw-bold" type="button">Search</button>
+                </div>
+            </form>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Create Account</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <!-- bar side -->
+    <div class="container py-3">
+        <div class="row border py-2 border-success ">
+            <div class="col-md-1 d-none d-md-block">
+                <img src="{% static 'images/logo.png' %}" width="60px">
+            </div>
+            <div class="col-md-10 text-center">
+                <p class="text-center">Buno Loves You: <br>
+                Information here has been verified by our team and ve been confirmed to be the real information of this person </p>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+    <!-- new body -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- sidebar -->     
+            <div class="col-md-2 d-none d-md-block py-3 sticky-top">
+                <div class="container">
+                    <p class="lead mb-0">Content</p>
+                    <hr class="my-1">
+                    <p class="fw-bold">
+                        TOP
+                    </p>
+                    <div class="links-no">
+                        <a href="">Early Life & Education</a>
+                        <a href="">Personal Life</a>
+                        <a href="">Career</a>
+                        <a href="">Biblography</a>
+                        <a href="">Awrads & Honors</a>
+                        <a href="">Family</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- main-body -->
+            <div class="col-md-10">
+                <!-- header -->
+                <div class="row justify-content-between pt-3">
+                    <div class="col-7 col-sm-9">
+                        <h4 class="text-dark">{{profile.name}}</h4>
+                    </div>
+                    <div class="col-5 col-sm-3">
+                        <div id="google_translate_element"></div>
+                    </div>
+                </div>
+                <hr class="my-0">
+
+                <!-- second hearder -->
+                <div class="row pt-0">
+                    <div class="col-6 col-sm-9">
+                        <p class="small textsecondary">
+                            <p>Article <span><a href="">Talk</a></span></p>
+                        </p>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <p class="small textsecondary">
+                            <p>Read <span>History</span></p>
+                        </p>
+                    </div>
+                </div>
+                <hr class="my-0">
+                <p class="text-dark fw-600">From BinoSearch, the best encyclopedia</p>
+
+
+
+                <!-- body text -->
+                <div class="row">
+                    <div class="col-md-9">
+                        <p><strong>{{profile.name}} </strong> {{profile.biography}}</p>
+
+                        <!-- early life -->
+                        <p class="lead mb-0 mt-4 text-primary">
+                            Early Life And Education
+                        </p>
+                        <hr class="my-0">
+                        <p>{{profile.early_life_education}}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="image-1">
+                                    <img src="{{profile.picture_1.url}}" class="img-fluid">
+                                    <p class="small text-center mb-1">Dr Samuel in 2015 Berlin Summit</p>
+                                </div>
+                                <p class="py-1 fw-bold bg-secondary  text-center">Background Information</p>
+                            
+                                <div class="row">
+                                    <div class="col-5 info-tec">
+                                        <p>Birth Name</p>
+                                        <p>Born</p>
+                                        <p>Nationality</p>
+                                        <!-- <p>Almer mater</p> -->
+                                        <p>Occupation</p>
+                                        <p>Fields</p>
+                                        <P>Institutions</P>
+                                    </div>
+                                    <div class="col-7 info-tec2">
+                                        <p>{{profile.name}}</p>
+                                        <p>{{profile.date_of_birth}}</p>
+                                        <p>{{profile.nationality}}</p>
+                                        <!-- <p>Almer mater</p> -->
+                                        <p>{{profile.occupation}}</p>
+                                        <p>{{profile.field}}</p>
+                                        <P>{{profile.institutions}}</P>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- main-body2 -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="lead mb-0 mt-2 text-primary">
+                            Family and Career
+                        </p>
+                        <hr class="my-0">
+                        <p>{{profile.family_career}}</p>
+                    </div>
+                </div>
+
+
+                <!-- body3 -->
+                <div class="row">
+                    <div class="col-md-9">
+
+                        <!-- field and work -->
+                        <p class="lead mb-0 mt-4 text-primary">
+                            Field and Work
+                        </p>
+                        <hr class="my-0">
+                        <p>{{profile.field_work}}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="image-1">
+                                    <img src="{{profile.picture_2.url}}" class="img-fluid">
+                                    <!-- <p class="small text-center mb-1">Dr Samuel in 2015 Berlin Summit</p> -->
+                                </div>
+                                <hr>
+                                <div class="image-1">
+                                    <img src="{{profile.picture_3.url}}" class="img-fluid">
+                                    <!-- <p class="small text-center mb-1">Dr Samuel in 2015 Berlin Summit</p> -->
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- main-body2 -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="lead mb-0 mt-2 text-primary">
+                            Awards and Honors
+                        </p>
+                        <hr class="my-0">
+                        <p>{{profile.award_honors}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- body -->
+    <div class="container">
+        
+        <div class="container" id="main-body">
+
+            
+
+            
+        </div>
+    </div>
+
+
+<!-- javascript function for google translate -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    </script>
+
+<!-- google translate -->
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
