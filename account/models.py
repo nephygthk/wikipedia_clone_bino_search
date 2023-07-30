@@ -25,6 +25,10 @@ class Profile(models.Model):
     picture_2 = models.FileField(upload_to='profile_pictures', default='default-img.jpg')
     picture_3 = models.FileField(upload_to='profile_pictures', default='default-img.jpg')
 
+    picture_1_text = models.CharField(max_length=255, null=True, blank=True)
+    picture_2_text = models.CharField(max_length=255, null=True, blank=True)
+    picture_3_text = models.CharField(max_length=255, null=True, blank=True)
+
     class Meta:
         ordering = ('-date_created',)
 

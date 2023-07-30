@@ -125,7 +125,9 @@
                             <div class="card-body">
                                 <div class="image-1">
                                     <img src="{{profile.picture_1.url}}" class="img-fluid">
-                                    <p class="small text-center mb-1">Dr Samuel in 2015 Berlin Summit</p>
+                                    {% if profile.picture_1_text %}
+                                    <p class="small text-center mb-1">{{profile.picture_1_text}}</p>
+                                    {% endif %}
                                 </div>
                                 <p class="py-1 fw-bold bg-secondary  text-center">Background Information</p>
                             
@@ -182,11 +184,17 @@
                             <div class="card-body">
                                 <div class="image-1">
                                     <img src="{{profile.picture_2.url}}" class="img-fluid">
+                                    {% if profile.picture_2_text %}
+                                    <p class="small text-center mb-1">{{profile.picture_2_text}}</p>
+                                    {% endif %}
                                     <!-- <p class="small text-center mb-1">Dr Samuel in 2015 Berlin Summit</p> -->
                                 </div>
                                 <hr>
                                 <div class="image-1">
                                     <img src="{{profile.picture_3.url}}" class="img-fluid">
+                                    {% if profile.picture_3_text %}
+                                    <p class="small text-center mb-1">{{profile.picture_3_text}}</p>
+                                    {% endif %}
                                     <!-- <p class="small text-center mb-1">Dr Samuel in 2015 Berlin Summit</p> -->
                                 </div>
                                 
