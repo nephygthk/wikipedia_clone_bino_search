@@ -60,7 +60,7 @@
                           <td>{{profile.occupation}}</td>
                           <td>{{profile.date_of_birth}}</td>
                           <td>{{profile.get_age}} Years</td>
-                          <td>http://localhost:8000/search/result/{{profile.slug}}</td>
+                          <td>https://binosearch.org/search/result/{{profile.slug}}</td>
                           <td><a href="{% url 'account:search_result' profile.slug %}" class="btn btn-primary fw-bold text-white btn-sm" style="font-size: 11px !important;">View</a></td>
                           <td><a href="{% url 'account:edit_profile' profile.slug %}" class="btn btn-info fw-bold text-white btn-sm" style="font-size: 11px !important;">Edit</a></td>
                           <td><a href="{% url 'account:delete_profile' profile.slug %}" class="btn btn-danger fw-bold text-white btn-sm" style="font-size: 11px !important;">Delete</a></td>
